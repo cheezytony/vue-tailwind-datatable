@@ -1758,11 +1758,13 @@ export default {
           color: #fff
 
   .filter-class
-    @apply border border-gray-500 cursor-pointer font-bold mb-2 mr-2 px-3 py-2 rounded-sm text-11 text-gray-500 uppercase
+    @apply border border-gray-500 cursor-pointer font-bold mb-2 mr-2 px-3 py-2 rounded-sm text-gray-500 uppercase
+    font-size: 10px
     &:hover
       @apply border-blue-500 text-blue-500
     &.active
-      @apply bg-blue-500 border-blue-500 text-white
+      @apply bg-blue-500 border-blue-500
+      color: #fff
 </style>
 
 <style scoped>
