@@ -520,7 +520,6 @@
                     <tr>
                       <td align="center" :colspan="colspan">
                         <slot name="empty">
-                          <!-- <img :src="emptyImg" alt="No Results" class="w-full max-h-500px p-10"> -->
                           No Results
                         </slot>
                       </td>
@@ -786,7 +785,6 @@ export default {
       items: [],
       headings: [],
       renderedItems: [],
-      emptyImg: require('@/assets/empty-delivery.svg'),
 
       // State
       ajaxLoading: false,
