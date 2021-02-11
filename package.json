@@ -1,0 +1,52 @@
+{
+  "name": "@cheezytony/vue-tailwind-datatable",
+  "version": "1.0.0",
+  "description": "Datatable for Vue and Tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheezytony/vue-tailwind-datatable.git"
+  },
+  "keywords": [
+    "vue",
+    "tailwind",
+    "tailwindcss",
+    "data",
+    "table",
+    "data table",
+    "datatable",
+    "vue-tailwind",
+    "vue tailwind",
+    "vue-tailwindcss",
+    "vue tailwindcss",
+    "vue-tailwind-css",
+    "vue tailwind css",,
+    "vue data"
+    "vue table",
+    "vue data table",
+    "vue datatable"
+  ],
+  "author": "Antonio Okoro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheezytony/vue-tailwind-datatable/issues"
+  },
+  "homepage": "https://github.com/cheezytony/vue-tailwind-datatable#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jquery": "^3.5.1",
+    "toastr": "^2.1.4",
+    "vue2-daterange-picker": "^0.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-vue": "^7.5.0"
+  }
+}
