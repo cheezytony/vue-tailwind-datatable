@@ -303,7 +303,7 @@
                                 :key="o"
                                 @click="clickedTD(td, n)"
                               >
-                                <slot :name="`td-${o+1}`">
+                                <slot :name="`td-${o+1}`" :item="item">
                                   <div v-html="td.rendered" v-if="td.rendered !== null && td.rendered !== ''"></div>
                                   <div v-else>---</div>
                                 </slot>
@@ -423,7 +423,7 @@
                               :key="o"
                               @click="clickedTD(td, n)"
                             >
-                              <slot :name="`td-${o+1}`">
+                              <slot :name="`td-${o+1}`" :item="item">
                                 <div v-html="td.rendered" v-if="td.rendered !== null && td.rendered !== ''"></div>
                                 <div v-else>---</div>
                               </slot>
@@ -632,6 +632,14 @@ export default {
     limit: {
       type: Number,
       default: 20
+    },
+    sort: {
+      type: String,
+      default: null
+    },
+    order: {
+      type: String,
+      default: 'asc'
     },
 
     // Display Config
@@ -936,7 +944,8 @@ export default {
     // Strings
     processedUrl () {
       const baseUrl = this.url.replace(/\/$/g, '')
-      return `${baseUrl}?${this.queryString}`
+      const url = new URL(baseUrl)
+      return `${baseUrl}${url.search ? '&' : '?'}${this.queryString}`
     },
     queryString () {
       const rangeKey = this.rangeable && typeof this.rangeable === 'object' ? this.rangeable.key : this.rangeable
@@ -984,13 +993,20 @@ export default {
       this.items = this.data
     },
     items () {
+      this.navigate(1)
       this.renderData()
     },
     limit (value) {
       this.itemsPerPage = value
     },
+    order (order) {
+      this.asc = order === 'asc'
+    },
     selected () {
       this.renderData()
+    },
+    sort (sort) {
+      this.sortColumn = sort
     },
 
     currentPage () {
@@ -1019,6 +1035,8 @@ export default {
   */
   mounted () {
     this.itemsPerPage = this.limit
+    this.asc = this.order === 'asc'
+    this.sortColumn = this.sort
     this.init()
     this.DOMListener()
   },
@@ -1092,7 +1110,10 @@ export default {
 
       this.ajaxLoading = false
     },
-    loadAjaxData () {
+    loadAjaxData (reset = false) {
+      if (reset) {
+        this.navigate(1)
+      }
       this.getData()
     },
     /*

@@ -1,6 +1,6 @@
 {
   "name": "@cheezytony/vue-tailwind-datatable",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Datatable for Vue and Tailwindcss",
   "main": "index.js",
   "scripts": {
